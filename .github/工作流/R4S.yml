@@ -14,8 +14,7 @@ name: R4S自动编译
 
 on:
   push:
-    branches: 
-      - master
+    branches: [ main ]
   schedule:
     - cron: 0 */12 * * *
 
