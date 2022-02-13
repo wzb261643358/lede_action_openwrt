@@ -14,8 +14,7 @@ name: X86_64自动编译
 
 on:
   push:
-    branches: 
-      -  [ main ]
+    branches: [ main ]
   schedule:
     - cron: 0 */12 * * *
 
