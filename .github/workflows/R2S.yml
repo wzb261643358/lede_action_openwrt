@@ -58,22 +58,9 @@ jobs:
           touch ./.config
           cat >> .config <<EOF
           # Device type
-          # 联想新路由3
-          # CONFIG_TARGET_ramips is not set
-          # CONFIG_TARGET_ramips_mt7621 is not set
-          # CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2 is not set
-          # X86_64
-          # CONFIG_TARGET_x86 is not set
-          # CONFIG_TARGET_x86_64 is not set
-          # CONFIG_TARGET_x86_64_DEVICE_generic is not set
-          # R2S
           CONFIG_TARGET_rockchip=y
           CONFIG_TARGET_rockchip_armv8=y
           CONFIG_TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
-          # R4S
-          # CONFIG_TARGET_rockchip is not set
-          # CONFIG_TARGET_rockchip_armv8 is not set
-          # CONFIG_TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s-1gb is not set
           # Gzip
           CONFIG_TARGET_IMAGES_GZIP=y
           # IPv6
