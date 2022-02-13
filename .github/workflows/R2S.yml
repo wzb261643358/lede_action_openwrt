@@ -14,7 +14,8 @@ name: R2S自动编译
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - master
   schedule:
     - cron: 0 */12 * * *
 
@@ -60,6 +61,7 @@ jobs:
           CONFIG_TARGET_rockchip=y
           CONFIG_TARGET_rockchip_armv8=y
           CONFIG_TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
+          
           # Gzip
           CONFIG_TARGET_IMAGES_GZIP=y
           # IPv6
@@ -124,7 +126,17 @@ jobs:
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
           CONFIG_PACKAGE_luci-theme-bootstrap=y
-          EOF          
+          # Open source WIFI driver
+          CONFIG_PACKAGE_kmod-mt7603=y
+          CONFIG_PACKAGE_kmod-mt7603e=n
+          CONFIG_PACKAGE_kmod-mt76x2=y
+          CONFIG_PACKAGE_kmod-mt76x2e=n
+          CONFIG_PACKAGE_hostapd-common=y
+          CONFIG_PACKAGE_wpad-openssl=y
+          CONFIG_PACKAGE_luci-app-mtwifi=n
+          
+          EOF
+          
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Make download
