@@ -13,10 +13,9 @@
 name: newifi-d2自动编译
 on:
   push:
-    branches: 
-      - master
-  schedule:
-    - cron: 0 */12 * * *
+    branches: [ master ]
+  release:
+    types: [ published ]
 
 jobs:
   build:
