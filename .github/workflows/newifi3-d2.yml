@@ -15,7 +15,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: 0 */12 * * *
+    - cron: 30 15 * * Mon
 
 jobs:
   build:
