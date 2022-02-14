@@ -43,10 +43,12 @@ jobs:
         run: |
           mv r4s.config.seed .config
           make defconfig
+
       - name: Make download
         run: |
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
+
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
@@ -58,6 +60,7 @@ jobs:
           du -h --max-depth=1 ./ --exclude=build_dir --exclude=bin
           du -h --max-depth=1 ./build_dir
           du -h --max-depth=1 ./bin
+
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
