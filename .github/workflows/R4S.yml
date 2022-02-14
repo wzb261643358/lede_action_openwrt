@@ -46,6 +46,7 @@ jobs:
         run: |
           mv r4s.config.seed .config
           make defconfig
+      - name: Make download
         run: |
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
