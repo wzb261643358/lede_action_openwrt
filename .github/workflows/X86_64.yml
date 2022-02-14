@@ -1,14 +1,3 @@
-#
-# This is free software, lisence use MIT.
-# 
-# Copyright (C) 2019 P3TERX <https://p3terx.com>
-# Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
-# Copyright (C) 2020 LemoFire <https://www.ito.fun>
-#
-# <https://github.com/P3TERX/Actions-OpenWrt> 
-# <https://github.com/KFERMercer/OpenWrt-CI>
-# <https://github.com/LemoFire/autoOpenWrt>
-#
 
 name: X86_64自动编译
 
@@ -41,12 +30,9 @@ jobs:
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
-          cd package
-          mkdir openwrt-packages
-          cd openwrt-packages
-          git clone https://github.com/LemoFire/luci-app-aliddns.git
       - name: Update feeds
         run: |
+          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
