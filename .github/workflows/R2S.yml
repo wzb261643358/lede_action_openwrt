@@ -32,6 +32,7 @@ jobs:
 
       - name: Update feeds
         run: |
+          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
