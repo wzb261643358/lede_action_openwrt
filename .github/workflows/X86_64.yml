@@ -85,6 +85,7 @@ jobs:
           # CONFIG_PACKAGE_nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
           # CONFIG_PACKAGE_luci-app-zerotier is not set
+          CONFIG_PACKAGE_uci-app-poweroff=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
