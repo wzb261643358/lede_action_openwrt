@@ -3,8 +3,8 @@ name: r4s自动编译
 on:
   push:
     branches: [ main ]
-  release:
-    types: [ published ]
+  schedule:
+    - cron:  30 15 * * Mon
 
 jobs:
 
