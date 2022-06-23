@@ -32,7 +32,7 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
           pwd
-          pwd  ./lede/
+          ls  ./lede/
           ls
           ls /home/runner/work/openwrt_lede_action/
           cp armv8.mk /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/image/
