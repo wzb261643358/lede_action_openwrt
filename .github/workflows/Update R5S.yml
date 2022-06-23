@@ -47,6 +47,7 @@ jobs:
           mv r5s.config.seed .config
           cp armv8.mk ./target/linux/rockchip/image/
           cp 02_network ./target/linux/rockchip/armv8/base-files/etc/board.d/
+          cp 40-net-smp-affinity ./target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
           chmod -R 777 ./
           make defconfig
       - name: Make download
