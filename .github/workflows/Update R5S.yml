@@ -34,7 +34,6 @@ jobs:
           pwd
           ls
           ls /home/runner/work/openwrt_lede_action/
-          ls origin/main
           cp armv8.mk /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/image/
           cp 02_network /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
           cp 01_leds /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
