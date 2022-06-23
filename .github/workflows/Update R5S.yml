@@ -33,11 +33,11 @@ jobs:
           mv ./lede/* ./
           pwd
           ls /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/image/
-          cp armv8.mk /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/image/
-          cp 02_network /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
-          cp 01_leds /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
-          cp 40-net-smp-affinity /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
-          cp Makefile /home/runner/work/openwrt_lede_action/lede/target/linux/rockchip/image/
+          cp armv8.mk /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/image/
+          cp 02_network /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
+          cp 01_leds /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/board.d/
+          cp 40-net-smp-affinity /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
+          cp Makefile /home/runner/work/openwrt_lede_action/openwrt_lede_action/lede/target/linux/rockchip/image/
           
       - name: Install addons
         run: |
