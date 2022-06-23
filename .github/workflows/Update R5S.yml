@@ -32,7 +32,7 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
           pwd
-          ls lede/
+          ls /lede/
           cp armv8.mk ./lede/target/linux/rockchip/image/
           cp 02_network ./lede/target/linux/rockchip/armv8/base-files/etc/board.d/
           cp 01_leds ./lede/target/linux/rockchip/armv8/base-files/etc/board.d/
