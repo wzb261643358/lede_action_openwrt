@@ -31,11 +31,11 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
-          cp armv8.mk /lede/target/linux/rockchip/image/
-          cp 02_network /lede/target/linux/rockchip/armv8/base-files/etc/board.d/
-          cp 01_leds /lede/target/linux/rockchip/armv8/base-files/etc/board.d/
-          cp 40-net-smp-affinity /lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
-          cp Makefile /lede/target/linux/rockchip/image/
+          cp armv8.mk lede/target/linux/rockchip/image/
+          cp 02_network lede/target/linux/rockchip/armv8/base-files/etc/board.d/
+          cp 01_leds lede/target/linux/rockchip/armv8/base-files/etc/board.d/
+          cp 40-net-smp-affinity lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
+          cp Makefile lede/target/linux/rockchip/image/
           
       - name: Install addons
         run: |
