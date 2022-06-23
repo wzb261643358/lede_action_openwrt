@@ -50,6 +50,7 @@ jobs:
           cp 01_leds ./target/linux/rockchip/armv8/base-files/etc/board.d/
           cp 40-net-smp-affinity ./target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
           cp Makefile ./target/linux/rockchip/image/
+          chmod -R 777 ./
           make defconfig
       - name: Make download
         run: |
