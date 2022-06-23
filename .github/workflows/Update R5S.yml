@@ -31,8 +31,7 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
-          pwd
-          
+  
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
@@ -49,7 +48,6 @@ jobs:
           cp 02_network ./target/linux/rockchip/armv8/base-files/etc/board.d/
           cp 40-net-smp-affinity ./target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/
           cp Makefile ./target/linux/rockchip/image/
-          chmod -R 777 ./
           make defconfig
       - name: Make download
         run: |
