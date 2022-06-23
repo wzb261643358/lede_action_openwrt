@@ -29,8 +29,14 @@ jobs:
           df -h
       - name: Download lede
         run: |
-          git clone https://github.com/wzb261643358/lede
+          git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
+          cp armv8.mk /lede/target/linux/rockchip/image/armv8.mk
+          cp 02_network /lede/target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+          cp 01_leds /lede/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds
+          cp 40-net-smp-affinity /lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+          cp Makefile /lede/target/linux/rockchip/image/Makefile
+          
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
