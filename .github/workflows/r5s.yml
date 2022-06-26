@@ -38,7 +38,8 @@ jobs:
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
-          ls
+          ls friendlywrt21-rk3568/
+          ls friendlywrt21-rk3568/scripts
       - name: Update feeds
         run: |
           cd friendlywrt21-rk3568
