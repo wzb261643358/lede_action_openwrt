@@ -135,6 +135,7 @@ jobs:
           ./build.sh rk3568.mk  || (cd friendlywrt && make V=sc)
           cd friendlywrt
           make target/imagebuilder/compile
+          ./build.sh sd-img
           
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
