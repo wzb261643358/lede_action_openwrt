@@ -47,6 +47,7 @@ jobs:
         run: |
           tree -d -L 2
           ls
+          cd friendlywrt21-rk3568/friendlywrt
           ./build.sh
           ./build.sh rk3568_docker.mk
       - name: Make download
