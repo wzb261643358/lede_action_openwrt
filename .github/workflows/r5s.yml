@@ -43,7 +43,7 @@ jobs:
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-       - name: Costom configure file
+      - name: Costom configure file
         run: |
           rm -f ./.config*
           touch ./.config
@@ -137,8 +137,8 @@ jobs:
           ./build.sh rk3568-docker.mk
       - name: Make download
         run: |
-      cd friendlywrt
-      make -j1 V=s
+          cd friendlywrt
+          make -j1 V=s
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
