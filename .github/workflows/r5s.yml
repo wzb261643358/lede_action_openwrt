@@ -132,7 +132,7 @@ jobs:
           make defconfig
       - name: compile
         run: |
-          cd friendlywrt-rk3568
+          cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk || (cd friendlywrt && make V=sc)
           cd friendlywrt
           make target/imagebuilder/compile
