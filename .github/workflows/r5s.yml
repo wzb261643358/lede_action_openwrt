@@ -133,18 +133,7 @@ jobs:
         run: |
           cd friendlywrt21-rk3568
           ./build.sh rk3568.mk
-      - name: Compile firmware
-        run: |
-          cd friendlywrt21-rk3568
-          make -j$(($(nproc) + 1)) -s || make -j1 V=s
-          echo "======================="
-          echo "Space usage:"
-          echo "======================="
-          df -h
-          echo "======================="
-          du -h --max-depth=1 ./ --exclude=build_dir --exclude=bin
-          du -h --max-depth=1 ./build_dir
-          du -h --max-depth=1 ./bin
+
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
