@@ -44,6 +44,7 @@ jobs:
           ./scripts/feeds install -a 
       - name: Costom configure file
         run: |
+          cd friendlywrt21-rk3568/friendlywrt/
           rm -f ./.config*
           touch ./.config
           cat >> .config <<EOF
