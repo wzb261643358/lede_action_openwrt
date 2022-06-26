@@ -49,7 +49,7 @@ jobs:
         run: |
           tree -d -L 2
           ./build.sh
-          sudo  ./build.sh rk3568_docker.mk
+          sudo  device/./build.sh rk3568_docker.mk
       - name: Make download
         run: |
           make download -j8
