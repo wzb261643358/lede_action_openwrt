@@ -38,6 +38,7 @@ jobs:
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          ls
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
