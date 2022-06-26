@@ -42,6 +42,7 @@ jobs:
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
+          sed -i "s/r4s/r5s/g" .config
           make defconfig
       - name: Costom configure file
         run: |
