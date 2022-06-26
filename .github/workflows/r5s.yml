@@ -45,7 +45,7 @@ jobs:
           make defconfig
       - name: mods
         run: |
-          cd friendlywrt-rk3568
+          cd friendlywrt21-rk3568
           sed -i '/=m/d;/CONFIG_VERSION/d;/CONFIG_SDK/d;/CONFIG_BUILDBOT/d;/CONFIG_ALL_KMODS/d;/CONFIG_ALL_NONSHARED/d;/CONFIG_DISPLAY_SUPPORT/d;/CONFIG_AUDIO_SUPPORT/d;/CONFIG_MAKE_TOOLCHAIN/d;/CGROUPS/d;/CONFIG_PACKAGE_luci-lib/d;/LLVM/d;/vsftpd=/d;/docker/Id;' `find configs/ -type f` scripts/mk-friendlywrt.sh
           cat $GITHUB_WORKSPACE/r5s.config.seed  | sed '/CONFIG_PACKAGE_kmod/d' > configs/rockchip/05-others
           echo 'CONFIG_TARGET_ROOTFS_PARTSIZE=800' >> configs/rockchip/05-others
@@ -60,6 +60,10 @@ jobs:
           ./build.sh nanopi_r5s.mk || (cd friendlywrt && make V=sc)
           cd friendlywrt
           make target/imagebuilder/compile
+      - name: Make download
+        run: |
+          make download -j8
+          find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
