@@ -40,10 +40,92 @@ jobs:
           cd friendlywrt21-rk3568/friendlywrt/
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          rm -f ./.config*
+          touch ./.config
+          cat >> .config <<EOF
+          # Device type
+          CONFIG_TARGET_rockchip=y
+          CONFIG_TARGET_rockchip_armv8=y
+          CONFIG_TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s=y
+          # Gzip
+          CONFIG_TARGET_IMAGES_GZIP=y
+          # IPv6
+          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+          CONFIG_PACKAGE_ipv6helper=y
+          # USB support
+          ONFIG_PACKAGE_kmod-usb-core=y
+          CONFIG_PACKAGE_kmod-usb3=y
+          CONFIG_PACKAGE_kmod-usb-storage=y
+          CONFIG_PACKAGE_kmod-usb-storage-extras=y
+          CONFIG_PACKAGE_automount=y
+          
+          # Filesystem
+          CONFIG_PACKAGE_kmod-fs-exfat=y
+          CONFIG_PACKAGE_kmod-fs-ext4=y
+          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          
+          # APP
+          # CONFIG_PACKAGE_luci-app-unblockmusic is not set
+          # CONFIG_PACKAGE_luci-app-mwan3 is not set
+          # CONFIG_PACKAGE_luci-app-adbyby-plus is not set
+          # CONFIG_UnblockNeteaseMusic_Go is not set
+          # CONFIG_UnblockNeteaseMusic_NodeJS is not set
+          # CONFIG_PACKAGE_luci-app-aliddns is not set
+          # CONFIG_PACKAGE_luci-app-accesscontrol is not set
+          # CONFIG_PACKAGE_luci-app-wireguard is not set
+          # CONFIG_PACKAGE_luci-app-baidupcs-web is not set
+          # CONFIG_PACKAGE_luci-app-filetransfer is not set
+          # CONFIG_PACKAGE_luci-app-openvpn is not set
+          # CONFIG_PACKAGE_luci-app-ttyd is not set
+          # CONFIG_PACKAGE_luci-app-syncdial=y
+          # CONFIG_PACKAGE_luci-app-usb-printer=y
+          # CONFIG_PACKAGE_luci-app-nlbwmon is not set
+          # CONFIG_PACKAGE_luci-app-xlnetacc is not set
+          # CONFIG_PACKAGE_nlbwmon is not set
+          # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
+          # CONFIG_PACKAGE_luci-app-zerotier is not set
+          CONFIG_PACKAGE_luci-app-poweroff=y
+          CONFIG_PACKAGE_luci-app-webadmin=y
+          CONFIG_PACKAGE_luci-app-ddns=y
+          CONFIG_PACKAGE_ddns-scripts_aliyun=y
+          CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
+          CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_nginx=y
+          CONFIG_PACKAGE_luci-app-upnp=y
+          CONFIG_PACKAGE_luci-app-docker=y
+          CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-vsftpd=y
+          CONFIG_PACKAGE_luci-app-samba=y
+          CONFIG_PACKAGE_openssh-sftp-server=y
+          CONFIG_PACKAGE_luci-app-transmission=y
+          CONFIG_PACKAGE_luci-app-ssr-plus=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          
+          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-netgear=y
+          CONFIG_PACKAGE_luci-theme-bootstrap=y
+          # Open source WIFI driver
+          CONFIG_PACKAGE_kmod-mt7603=y
+          CONFIG_PACKAGE_kmod-mt7603e=n
+          CONFIG_PACKAGE_kmod-mt76x2=y
+          CONFIG_PACKAGE_kmod-mt76x2e=n
+          CONFIG_PACKAGE_hostapd-common=y
+          CONFIG_PACKAGE_wpad-openssl=y
+          CONFIG_PACKAGE_luci-app-mtwifi=n
+          
+          EOF
+          
+          sed -i 's/^[ \t]*//g' ./.config
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
-          sed -i "s/r4s/r5s/g" .config
-          make defconfig
+              make defconfig
       - name: Costom configure file
         run: |
           ./build.sh rk3568_docker.mk
