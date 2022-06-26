@@ -40,6 +40,10 @@ jobs:
           cd friendlywrt21-rk3568/friendlywrt/
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          ./scripts/feeds update -a 
+          ./scripts/feeds install -a 
+      - name: Costom configure file
+        run: |
           rm -f ./.config*
           touch ./.config
           cat >> .config <<EOF
@@ -123,11 +127,7 @@ jobs:
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
-          ./scripts/feeds update -a 
-          ./scripts/feeds install -a 
-              make defconfig
-      - name: Costom configure file
-        run: |
+          make defconfig
           ./build.sh rk3568_docker.mk
       - name: Make download
         run: |
