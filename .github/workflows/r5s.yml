@@ -46,7 +46,7 @@ jobs:
       - name: Costom configure file
         run: |
           tree -d -L 2
-          ls
+          ls device/rockchip/rk3568/
           cd device/rockchip/rk3568/
           ./build.sh
           ./build.sh rk3568_docker.mk
