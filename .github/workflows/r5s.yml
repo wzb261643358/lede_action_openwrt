@@ -48,8 +48,8 @@ jobs:
           cd ..
       - name: Costom configure file
         run: |
-          ./build.sh rk3568-docker.mk
-          ./build.sh emmc-img
+          ./build.sh/rk3568 rk3568-docker.mk
+          ./build.sh/rk3568 emmc-img
       - name: Make download
         run: |
           make download -j8
