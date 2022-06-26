@@ -134,10 +134,6 @@ jobs:
       - name: Custom configure file
         run: |
           ./build.sh rk3568-docker.mk
-      - name: Make download
-        run: |
-          cd friendlywrt
-          make -j1 V=s
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
