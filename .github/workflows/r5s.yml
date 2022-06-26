@@ -41,7 +41,7 @@ jobs:
           ls
       - name: Update feeds
         run: |
-          cd friendlywrt
+          cd friendlywrt21-rk3568
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
           cd ..
