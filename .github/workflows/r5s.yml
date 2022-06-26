@@ -43,15 +43,12 @@ jobs:
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
           make defconfig
-          cd ..
-          cd ..
       - name: Costom configure file
         run: |
           tree -d -L 2
-          cd device
           ls
           ./build.sh
-          sudo  device/./build.sh rk3568_docker.mk
+          ./build.sh rk3568_docker.mk
       - name: Make download
         run: |
           make download -j8
