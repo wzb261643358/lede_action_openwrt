@@ -35,12 +35,11 @@ jobs:
           tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v21.02 \
                   -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
-      - name: Install addons
-        run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
           cd friendlywrt21-rk3568/friendlywrt
+          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
           make defconfig
