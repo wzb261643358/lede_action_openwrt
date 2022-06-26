@@ -48,7 +48,7 @@ jobs:
           cd ..
       - name: Costom configure file
         run: |
-          tree -d -L 1
+          tree -d -L 2
           cd friendlywrt_device_rk3568/rk3568
           ./build.sh rk3568-docker.mk
           ./build.sh emmc-img
