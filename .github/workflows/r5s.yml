@@ -42,6 +42,7 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          make menuconfig
       - name: Costom configure file
         run: |
           rm -f ./.config*
