@@ -132,6 +132,10 @@ jobs:
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
           ./build.sh rk3568-docker.mk
+      - name: Make download
+        run: |
+          make download -j8
+          find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
