@@ -44,7 +44,6 @@ jobs:
           cd friendlywrt
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
-          make menuconfig
           cd ..
       - name: Costom configure file
         run: |
