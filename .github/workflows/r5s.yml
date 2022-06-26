@@ -132,8 +132,10 @@ jobs:
       - name: compile
         run: |
           cd friendlywrt21-rk3568
-          ./build.sh rk3568.mk
-
+          ./build.sh rk3568.mk  || (cd friendlywrt && make V=sc)
+          cd friendlywrt
+          make target/imagebuilder/compile
+          
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
