@@ -47,8 +47,7 @@ jobs:
         run: |
           tree -d -L 2
           ls
-          cd friendlywrt21-rk3568/device/rockchip/rk3568/
-          ls
+          cd device/rockchip/rk3568/
           ./build.sh
           ./build.sh rk3568_docker.mk
       - name: Make download
