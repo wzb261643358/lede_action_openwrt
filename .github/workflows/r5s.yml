@@ -37,7 +37,7 @@ jobs:
           tools/repo sync -c  --no-clone-bundle
       - name: Update feeds
         run: |
-          cd friendlywrt21-rk3568/friendlywrt
+          cd friendlywrt21-rk3568/friendlywrt/
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           ./scripts/feeds update -a 
@@ -47,7 +47,8 @@ jobs:
         run: |
           tree -d -L 2
           ls
-          cd friendlywrt
+          friendlywrt21-rk3568/friendlywrt/device/rockchip/rk3568/
+          ls
           ./build.sh
           ./build.sh rk3568_docker.mk
       - name: Make download
