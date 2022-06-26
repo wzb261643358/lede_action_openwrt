@@ -135,6 +135,7 @@ jobs:
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
           ./build.sh rk3568-docker.mk
+          ./build.sh emmc-img
       - name: Make download
         run: |
           make download -j8
