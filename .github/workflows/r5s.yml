@@ -40,12 +40,6 @@ jobs:
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           ls friendlywrt21-rk3568/
           ls friendlywrt21-rk3568/scripts
-      - name: Update feeds
-        run: |
-          cd friendlywrt21-rk3568
-          ./scripts/feeds update -a 
-          ./scripts/feeds install -a 
-          cd ..
       - name: Costom configure file
         run: |
           rm -f ./.config*
