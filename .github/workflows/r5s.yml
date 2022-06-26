@@ -131,8 +131,6 @@ jobs:
           
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
-      - name: Custom configure file
-        run: |
           ./build.sh rk3568-docker.mk
       - name: Compile firmware
         run: |
