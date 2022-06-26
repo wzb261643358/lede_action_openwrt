@@ -48,6 +48,8 @@ jobs:
       - name: Costom configure file
         run: |
           tree -d -L 2
+          cd device
+          ls
           ./build.sh
           sudo  device/./build.sh rk3568_docker.mk
       - name: Make download
