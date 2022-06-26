@@ -128,7 +128,6 @@ jobs:
           
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
-          ./build.sh rk3568_docker.mk
       - name: Make download
         run: |
           make download -j8
