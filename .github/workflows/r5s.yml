@@ -133,6 +133,7 @@ jobs:
         run: |
           cd friendlywrt21-rk3568
           ./build.sh rk3568.mk  || (cd friendlywrt && make V=sc)
+          cd friendlywrt
           ./build.sh sd-img
           
       - name: Prepare artifact
