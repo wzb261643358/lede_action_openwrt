@@ -131,7 +131,7 @@ jobs:
           make defconfig
       - name: Make download
         run: |
-          cd friendlywrt21-rk3568
+          cd friendlywrt21-rk3568/friendlywrt/
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
