@@ -136,6 +136,7 @@ jobs:
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
+          cd friendlywrt21-rk3568/friendlywrt/
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
           echo "======================="
           echo "Space usage:"
