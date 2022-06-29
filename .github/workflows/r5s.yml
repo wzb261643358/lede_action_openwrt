@@ -156,3 +156,4 @@ jobs:
         with:
           name: OpenWrt firmware
           path: ./bin/targets/
+
