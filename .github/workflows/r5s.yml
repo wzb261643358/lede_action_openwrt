@@ -124,6 +124,19 @@ jobs:
           CONFIG_PACKAGE_hostapd-common=y
           CONFIG_PACKAGE_wpad-openssl=y
           CONFIG_PACKAGE_luci-app-mtwifi=n
+          CONFIG_PACKAGE_kmod-ptp=n
+          CONFIG_PACKAGE_kmod-bnx2x=n
+          CONFIG_PACKAGE_kmod-mlx4-core=n
+          CONFIG_PACKAGE_kmod-mlx5-core=n
+          CONFIG_PACKAGE_kmod-igc=n
+          CONFIG_PACKAGE_kmod-sfc=n
+          CONFIG_PACKAGE_kmod-e1000e=n
+          CONFIG_PACKAGE_kmod-igb=n
+          CONFIG_PACKAGE_kmod-igbvf=n
+          CONFIG_PACKAGE_kmod-ixgbe=n
+          CONFIG_PACKAGE_kmod-ixgbevf=n
+          CONFIG_PACKAGE_kmod-i40e=n
+          CONFIG_PACKAGE_kmod-tg3=n
           
           EOF
           
