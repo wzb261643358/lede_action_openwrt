@@ -29,22 +29,22 @@ jobs:
           df -h
       - name: Download FriendlyWrt
         run: |
-          mkdir friendlywrt21-rk3568
-          cd friendlywrt21-rk3568
+          mkdir friendlywrt22-rk3568
+          cd friendlywrt22-rk3568
           git clone https://github.com/friendlyarm/repo --depth 1 tools
-          tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v21.02 \
-                  -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
+          tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v22.03 \
+          -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
       - name: Update feeds
         run: |
-          cd friendlywrt21-rk3568/friendlywrt/
+          cd friendlywrt22-rk3568/friendlywrt/
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           ./scripts/feeds update -a 
           ./scripts/feeds install -a 
       - name: Costom configure file
         run: |
-          cd friendlywrt21-rk3568/friendlywrt/
+          cd friendlywrt22-rk3568/friendlywrt/
           rm -f ./.config*
           touch ./.config
           cat >> .config <<EOF
@@ -131,7 +131,7 @@ jobs:
           make defconfig
       - name: compile
         run: |
-          cd friendlywrt21-rk3568
+          cd friendlywrt22-rk3568
           ./build.sh rk3568.mk  || (cd friendlywrt && make V=sc)
           ./build.sh sd-img  || (cd friendlywrt && make V=sc)
           
