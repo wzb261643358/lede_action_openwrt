@@ -145,8 +145,7 @@ jobs:
       - name: compile
         run: |
           cd friendlywrt22-rk3568
-          make download -j8
-          find dl -size -1024c -exec rm -f {} \;
+          ./build.sh nanopi_r5s.mk  || (cd friendlywrt && make V=sc)
       - name: Compile firmware
         run: |
           make -j$(($(nproc) + 1)) -s || make -j1 V=s
