@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir lede
           git clone https://github.com/Boos4721/openwrt
-          mv ./openwrt/* ./lede/
+          mv ./openwrt/* ./
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
