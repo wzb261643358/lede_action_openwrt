@@ -48,8 +48,7 @@ jobs:
           make defconfig
       - name: Make download
         run: |
-          make download -j8
-          find dl -size -1024c -exec rm -f {} \;
+         make -j8 download V=s
       - name: Compile firmware
         run: |
          make -j1 V=s
