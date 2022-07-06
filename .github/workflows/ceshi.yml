@@ -37,7 +37,7 @@ jobs:
       - name: Compile firmware
         run: |
           cd friendlywrt21-rk3568
-          ./nanopi_r5s.mk
+          ../build.sh /nanopi_r5s.mk
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
