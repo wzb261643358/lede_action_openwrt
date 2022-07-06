@@ -38,7 +38,7 @@ jobs:
           mv ./friendlywrt21-rk3568/* ./
       - name: Custom configure file
         run: |
-          mv r5s.config.seed .config
+          mv /home/runner/work/openwrt_lede_action/openwrt_lede_action/r5s.config.seed .config
           make defconfig
       - name: Compile firmware
         run: |
