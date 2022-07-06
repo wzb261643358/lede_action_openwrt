@@ -40,7 +40,7 @@ jobs:
         run: |
           ./nanopi_r5s.mk
       - name: Prepare artifact
-        run: find ./friendlywrt21-rk3568/bin/targets/ -type d -name "packages" | xargs rm -rf {}
+        run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
