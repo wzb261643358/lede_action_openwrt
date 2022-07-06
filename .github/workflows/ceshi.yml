@@ -36,10 +36,6 @@ jobs:
           tools/repo sync -c  --no-clone-bundle
           cd ..
           mv ./friendlywrt21-rk3568/* ./
-      - name: Custom configure file
-        run: |
-          mv /home/runner/work/openwrt_lede_action/openwrt_lede_action/r5s.config.seed .config
-          make defconfig
       - name: Compile firmware
         run: |
           ./nanopi_r5s.mk
