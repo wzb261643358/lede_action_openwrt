@@ -34,6 +34,42 @@ jobs:
           tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v21.02 \
                   -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
+      - name: Costom configure file
+        run: |
+         cd friendlywrt21-rk3568
+          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          rm -f ./.config*
+          touch ./.config
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-ddns=y
+          CONFIG_PACKAGE_ddns-scripts_aliyun=y
+          CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
+          CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_nginx=y
+          CONFIG_PACKAGE_luci-app-upnp=y
+          CONFIG_PACKAGE_luci-app-docker=y
+          CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-vsftpd=y
+          CONFIG_PACKAGE_luci-app-samba=y
+          CONFIG_PACKAGE_openssh-sftp-server=y
+          CONFIG_PACKAGE_luci-app-transmission=y
+          CONFIG_PACKAGE_luci-app-ssr-plus=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          
+          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-netgear=y
+          
+          EOF
+          
+          sed -i 's/^[ \t]*//g' ./.config
       - name: Compile firmware
         run: |
           cd friendlywrt21-rk3568
