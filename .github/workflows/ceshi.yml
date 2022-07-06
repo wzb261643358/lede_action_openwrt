@@ -40,7 +40,7 @@ jobs:
         run: |
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
-        run: find ./out/ -type d -name "*img.gz" | xargs rm -rf {}
+        run: find ./out/ -type d -name "*img" | xargs rm -rf {}
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
