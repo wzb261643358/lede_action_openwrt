@@ -34,9 +34,10 @@ jobs:
           tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v21.02 \
                   -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
+          cd ..
+          mv ./friendlywrt21-rk3568/* ./
       - name: Compile firmware
         run: |
-          cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
