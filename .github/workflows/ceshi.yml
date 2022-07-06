@@ -38,11 +38,22 @@ jobs:
         run: |
           cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk
-      - name: Prepare artifact
-        run: find ./friendlywrt21/out/ -type d -name "*.img.GZ" "*.img" | xargs rm -rf {}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@master
+      - name: Assemble Artifact
+        id: assemble_artifact
+        run: |
+          mkdir -p rom
+          cp -a img/out/*.gz rom/
+          cp -a img/out/*.zip rom/
+          cp -a img/out/*txt rom/
+      - name: Create release
+        id: create_release
+        uses: ncipollo/release-action@v1.8.0
         with:
-          name: OpenWrt firmware
-          path: ./friendlywrt21/out
+          name: OpenWRT-${{ env.latest_release }}
+          allowUpdates: true
+          tag: ${{ env.latest_release }}
+          commit: master
+          replacesArtifacts: true
+          token: ${{ secrets.workflow_token }}
+          artifacts: rom/*
+
