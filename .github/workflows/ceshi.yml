@@ -37,6 +37,7 @@ jobs:
                   -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
           ls ./friendlywrt
+          ls ./friendlywrt21-rk3568
       - name: Compile firmware
         run: |
           cd friendlywrt21-rk3568
