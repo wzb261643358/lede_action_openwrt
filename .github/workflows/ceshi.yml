@@ -28,25 +28,21 @@ jobs:
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk
       - name: download Friendlywrt
         run: |
-          pwd
-          ls
           mkdir friendlywrt21-rk3568
           cd friendlywrt21-rk3568
           git clone https://github.com/friendlyarm/repo --depth 1 tools
           tools/repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v21.02 \
                   -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           tools/repo sync -c  --no-clone-bundle
-          ls ./friendlywrt
-          ls ./friendlywrt21-rk3568
       - name: Compile firmware
         run: |
           cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
-        run: find ./friendlywrt21/out/ -type d -name "*.img" "*.bin" | xargs rm -rf {}
+        run: find ./friendlywrt/out/ -type d -name "*.img" "*.bin" | xargs rm -rf {}
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
-          path: ./friendlywrt21/out/
+          path: ./friendlywrt/out/
