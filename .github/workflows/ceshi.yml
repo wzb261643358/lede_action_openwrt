@@ -39,9 +39,11 @@ jobs:
           cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
+         cd friendlywrt21-rk3568
         run: find ./friendlywrt/out/ -type d -name "*.img" "*.bin" | xargs rm -rf {}
 
       - name: Upload artifact
+         cd friendlywrt21-rk3568
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
