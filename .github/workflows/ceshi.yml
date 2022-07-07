@@ -47,11 +47,11 @@ jobs:
           pwd
           ls friendlywrt
       - name: Prepare artifact
+          cd friendlywrt21-rk3568
         run: find ./scripts/sd-fuse/out/ -type d -name "*.img" "*.bin" | xargs rm -rf {}
-            find ./ -name *.img 
-            find ./ -name *.gz
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
+          cd friendlywrt21-rk3568
           path: ./scripts/sd-fuse/out/
