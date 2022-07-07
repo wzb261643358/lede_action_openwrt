@@ -43,7 +43,7 @@ jobs:
           cd friendlywrt21-rk3568
           rm ./friendlywrt/feeds.conf.default
           cd ..
-          cp feeds.conf.default /friendlywrt21-rk3568/friendlywrt
+          cp feeds.conf.default ./friendlywrt
           cd friendlywrt21-rk3568
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
