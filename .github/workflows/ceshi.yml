@@ -36,9 +36,9 @@ jobs:
           tools/repo sync -c  --no-clone-bundle
       - name: Compile firmware
         run: |
-          rm /friendlywrt21-rk3568/friendlywrt/feeds.conf.default
-          cp feeds.conf.default /friendlywrt21-rk3568/friendlywrt
           cd friendlywrt21-rk3568
+          rm ./friendlywrt/feeds.conf.default
+          cp feeds.conf.default ./friendlywrt
           ./build.sh nanopi_r5s.mk
       - name: Prepare artifact
          cd friendlywrt21-rk3568
