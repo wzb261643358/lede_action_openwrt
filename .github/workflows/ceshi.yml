@@ -49,19 +49,37 @@ jobs:
           find ./ -name *.img 
           find ./friendlywrt21/ -name *.img 
       - name: Prepare artifact
-        run: find ./friendlywrt21-rk3568/scripts/sd-fuse/out/ -type d -name "*.img"| xargs rm -rf {}
+        run: |
+          mkdir -p ./artifact/firmware
+          mkdir -p ./artifact/package
+          mkdir -p ./artifact/buildinfo
+          rm -rf $(find ./ -type d -name "packages")
+          cp -rf $(find ./friendlywrt21-rk3568/scripts/sd-fuse/out/ -type f) ./artifact/firmware/
+          cp -rf $(find ./ -type f -name "*.ipk") ./artifact/package/
+          cp -rf $(find ./ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
+      - name: Deliver buildinfo
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt_buildinfo
+          path: ./artifact/buildinfo/
+
+      - name: Deliver package
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt_package
+          path: ./artifact/package/
 
       - name: Deliver firmware
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./friendlywrt21-rk3568/scripts/sd-fuse/out/
+          path: ./bin/targets/
 
       - name: Upload release asset
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./friendlywrt21-rk3568/scripts/sd-fuse/out/*
+          file: ./artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
