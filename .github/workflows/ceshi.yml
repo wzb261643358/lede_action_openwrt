@@ -48,7 +48,8 @@ jobs:
           ls friendlywrt
       - name: Prepare artifact
         run: find ./scripts/sd-fuse/out/ -type d -name "*.img" "*.bin" | xargs rm -rf {}
-
+            find ./ -name *.img 
+            find ./ -name *.gz
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
