@@ -51,8 +51,17 @@ jobs:
       - name: Prepare artifact
         run: find ./friendlywrt21-rk3568/scripts/sd-fuse/out/ -type d -name "*.img"| xargs rm -rf {}
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@master
+      - name: Deliver firmware
+        uses: actions/upload-artifact@v2
         with:
-          name: OpenWrt firmware
-          path:  ./friendlywrt21-rk3568/scripts/sd-fuse/out/
+          name: OpenWrt_firmware
+          path: ./friendlywrt21-rk3568/scripts/sd-fuse/out/
+
+      - name: Upload release asset
+        if: github.event == 'release'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.YOURTOKEN }}
+          file: ./friendlywrt21-rk3568/scripts/sd-fuse/out/*
+          tag: ${{ github.ref }}
+          file_glob: true
