@@ -41,10 +41,8 @@ jobs:
       - name: Assemble Artifact
         id: assemble_artifact
         run: |
-          mkdir -p rom
-          cp -a img/out/*.gz rom/
-          cp -a img/out/*.zip rom/
-          cp -a img/out/*txt rom/
+         find ./ -name *.img 
+         find ./friendlywrt21/ -name *.img 
       - name: Create release
         id: create_release
         uses: ncipollo/release-action@v1.8.0
