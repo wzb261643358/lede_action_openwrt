@@ -40,20 +40,17 @@ jobs:
           ls friendlywrt
       - name: Prepare artifact
         run: |
-          mkdir -p ./artifact/firmware
-          cp -rf $(find ./ -type f -name "*.*") ./artifact/firmware/
-
       - name: Deliver firmware
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./artifact/firmware/
+          path: ./
 
       - name: Upload release asset
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./artifact/firmware/*
+          file: ./
           tag: ${{ github.ref }}
           file_glob: true
