@@ -38,14 +38,6 @@ jobs:
           ls
           pwd
           ls friendlywrt
-      - name: Compile firmware
-        run: |
-          cd friendlywrt21-rk3568
-          ./build.sh nanopi_r5s.mk
-          pwd
-          ls
-          pwd
-          ls friendlywrt
       - name: Prepare artifact
         run: |
           mkdir -p ./artifact/firmware
