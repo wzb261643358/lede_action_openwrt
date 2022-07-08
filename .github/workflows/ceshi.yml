@@ -47,14 +47,13 @@ jobs:
           pwd
           ls friendlywrt
           find ./ -name *.img 
-          find ./friendlywrt21/ -name *.img 
       - name: Prepare artifact
         run: |
           mkdir -p ./artifact/firmware
           mkdir -p ./artifact/package
           mkdir -p ./artifact/buildinfo
           rm -rf $(find ./ -type d -name "packages")
-          cp -rf $(find ./friendlywrt21/ -type f -name "*.img") ./artifact/firmware/
+          cp -rf $(find ./ -type f -name "*.img") ./artifact/firmware/
           cp -rf $(find ./ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
       - name: Deliver buildinfo
