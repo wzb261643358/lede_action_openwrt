@@ -53,7 +53,7 @@ jobs:
           mkdir -p ./artifact/package
           mkdir -p ./artifact/buildinfo
           rm -rf $(find ./ -type d -name "packages")
-          cp -rf $(find ./ -type f -name "*nanopi-r5s_arm64_sd.img") ./artifact/firmware/
+          cp -rf $(find ./friendlywrt21-rk3568/scripts/sd-fuse/out/ -type f -name "*.img") ./artifact/firmware/
           cp -rf $(find ./ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
       - name: Deliver buildinfo
@@ -72,7 +72,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/
+          path: ./bin/firmware/
 
       - name: Upload release asset
         if: github.event == 'release'
