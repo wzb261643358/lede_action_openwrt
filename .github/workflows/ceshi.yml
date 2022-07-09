@@ -53,7 +53,7 @@ jobs:
           mkdir -p ./artifact/package
           mkdir -p ./artifact/buildinfo
           rm -rf $(find ./ -type d -name "packages")
-          cp -rf $(find ./scripts/sd-fuse/out/ -type f -name "*.img") ./artifact/firmware/
+          cp -rf $(find ./friendlywrt21-rk3568/scripts/sd-fuse/out/ -type f -name "*.img") ./artifact/firmware/
           cp -rf $(find ./ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
       - name: Deliver buildinfo
