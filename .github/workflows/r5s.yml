@@ -24,17 +24,15 @@ jobs:
           sudo -E apt-get clean
       - name: Download lede
         run: |
-          git clone https://github.com/DHDAXCW/lede-rk3568
-          mkdir ./lede/
-          mv ./lede-rk3568/* ./lede/
+          git clone https://github.com/wzb261643358/lede
+          mv ./lede/* ./
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-          mkdir package/lean/
-          mv luci-theme-argon package/lean/
+          rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
