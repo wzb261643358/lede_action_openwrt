@@ -1,4 +1,4 @@
-name: r5s自动编译
+name: r4s自动编译
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
           ./scripts/feeds install -a
       - name: Custom configure file
         run: |
-          mv r5s.config.seed .config
+          mv r4s.config.seed .config
           make defconfig
       - name: Make download
         run: |
