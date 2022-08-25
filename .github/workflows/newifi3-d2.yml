@@ -1,5 +1,3 @@
-
-
 name: newifi-d2自动编译
 on:
   push:
@@ -32,6 +30,8 @@ jobs:
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Costom configure file
@@ -43,7 +43,6 @@ jobs:
           CONFIG_TARGET_ramips=y
           CONFIG_TARGET_ramips_mt7621=y
           CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
-
           # Gzip
           CONFIG_TARGET_IMAGES_GZIP=y
           # IPv6
@@ -81,17 +80,17 @@ jobs:
           # CONFIG_PACKAGE_nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
           # CONFIG_PACKAGE_luci-app-zerotier is not set
-          # CONFIG_PACKAGE_luci-app-webadmin is not set
+          CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
           CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
           CONFIG_PACKAGE_luci-app-aria2=y
-          # CONFIG_PACKAGE_nginx is not set
+          CONFIG_PACKAGE_nginx=y
           CONFIG_PACKAGE_luci-app-upnp=y
-          # CONFIG_PACKAGE_luci-app-docker is not set
+          CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-app-frpc=y
-          # CONFIG_PACKAGE_luci-app-vsftpd is not set
-          # CONFIG_PACKAGE_luci-app-samba is not set
+          CONFIG_PACKAGE_luci-app-vsftpd=y
+          CONFIG_PACKAGE_luci-app-samba=y
           CONFIG_PACKAGE_openssh-sftp-server=y
           CONFIG_PACKAGE_luci-app-transmission=y
           CONFIG_PACKAGE_luci-app-ssr-plus=y
@@ -104,7 +103,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
           
-          # CONFIG_PACKAGE_luci-theme-argon is not set
+          CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
           CONFIG_PACKAGE_luci-theme-bootstrap=y
           # Open source WIFI driver
@@ -164,4 +163,3 @@ jobs:
           file: ./artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
-          
