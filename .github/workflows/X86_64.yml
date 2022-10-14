@@ -1,13 +1,10 @@
-
 name: X86_64自动编译
 
 on:
   push:
     branches: [ main ]
   schedule:
-        - cron:  30 15 * * Mon
-  permissions:
-        contents: read
+    - cron:  30 15 * * Mon
 
 jobs:
   build:
@@ -15,25 +12,16 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master
-
-      - name: Space cleanup
+        uses: actions/checkout@master
+      - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          docker rmi `docker images -q`
-          sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
-          sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* adoptopenjdk* mysql* php* mongodb* dotnet* moby* snapd* || true
-          sudo -E apt-get update
-          sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib g++-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler antlr3 gperf swig
+          sudo -E apt-get -yqq update
+          sudo -E apt-get -yqq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
-          df -h
-
       - name: Download lede
         run: |
           git clone https://github.com/coolsnowwolf/lede
@@ -57,7 +45,6 @@ jobs:
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_64=y
           CONFIG_TARGET_x86_64_DEVICE_generic=y
-
           # Gzip
           CONFIG_TARGET_IMAGES_GZIP=y
           # IPv6
