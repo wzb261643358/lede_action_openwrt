@@ -76,4 +76,4 @@ CONFIG_OPENSSL_WITH_NPN=y
 # CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO is not set
 # CONFIG_FEED_rosy is not set
 
-CONFIG_PACKAGE_autocore-arm=y
+# CONFIG_PACKAGE_autocore-arm is not set
