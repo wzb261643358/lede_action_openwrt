@@ -57,7 +57,6 @@ jobs:
           
           # Filesystem
           CONFIG_PACKAGE_kmod-fs-exfat=y
-          CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-ntfs=y
           
           # APP
