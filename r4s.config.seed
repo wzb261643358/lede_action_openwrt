@@ -86,3 +86,4 @@ CONFIG_PACKAGE_kmod-fs-nfsd=y
 CONFIG_PACKAGE_kmod-fs-squashfs=y
 CONFIG_PACKAGE_autocore=y
 CONFIG_PACKAGE_autocore-arm=y
+
