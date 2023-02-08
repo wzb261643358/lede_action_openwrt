@@ -57,6 +57,7 @@ jobs:
           
           # Filesystem
           CONFIG_PACKAGE_kmod-fs-exfat=y
+          CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-ntfs=y
           
           # APP
@@ -79,16 +80,16 @@ jobs:
           # CONFIG_PACKAGE_nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
           # CONFIG_PACKAGE_luci-app-zerotier is not set
-          CONFIG_PACKAGE_luci-app-webadmin=y
+          # CONFIG_PACKAGE_luci-app-webadmin is not set
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
           CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
           CONFIG_PACKAGE_luci-app-aria2=y
-          CONFIG_PACKAGE_nginx=y
+          # CONFIG_PACKAGE_nginx is not set
           CONFIG_PACKAGE_luci-app-upnp=y
-          CONFIG_PACKAGE_luci-app-docker=y
+          # CONFIG_PACKAGE_luci-app-docker is not set
           CONFIG_PACKAGE_luci-app-frpc=y
-          CONFIG_PACKAGE_luci-app-vsftpd=y
+          # CONFIG_PACKAGE_luci-app-vsftpd is not set
           CONFIG_PACKAGE_luci-app-samba=y
           CONFIG_PACKAGE_openssh-sftp-server=y
           CONFIG_PACKAGE_luci-app-transmission=y
