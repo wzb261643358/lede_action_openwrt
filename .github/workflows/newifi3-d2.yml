@@ -87,9 +87,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-upnp=y
           # CONFIG_PACKAGE_luci-app-docker is not set
           CONFIG_PACKAGE_luci-app-frpc=y
-          # CONFIG_PACKAGE_luci-app-vsftpd is not set
-          # CONFIG_PACKAGE_luci-app-samba is not set
-          # CONFIG_PACKAGE_openssh-sftp-server is not set
+          CONFIG_PACKAGE_luci-app-vsftpd=y
+          CONFIG_PACKAGE_luci-app-samba=y
+          CONFIG_PACKAGE_openssh-sftp-server=y
           CONFIG_PACKAGE_luci-app-transmission=y
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
@@ -106,9 +106,9 @@ jobs:
           CONFIG_PACKAGE_kmod-mt7603=y
           CONFIG_PACKAGE_kmod-mt7603e=n
           CONFIG_PACKAGE_kmod-mt76x2=y
-          CONFIG_PACKAGE_kmod-mt76x2e=n
+          # CONFIG_PACKAGE_kmod-mt76x2e is not set
           CONFIG_PACKAGE_hostapd-common=y
-          # CONFIG_PACKAGE_wpad-openssl is not set
+          CONFIG_PACKAGE_wpad-openssl=y
           CONFIG_PACKAGE_luci-app-mtwifi=y
           
           EOF
@@ -156,6 +156,6 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./artifact/firmware/*
+          file: ./bin/targets/*
           tag: ${{ github.ref }}
           file_glob: true
