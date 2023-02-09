@@ -30,8 +30,6 @@ jobs:
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-          rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Costom configure file
@@ -90,8 +88,8 @@ jobs:
           # CONFIG_PACKAGE_luci-app-docker is not set
           CONFIG_PACKAGE_luci-app-frpc=y
           # CONFIG_PACKAGE_luci-app-vsftpd is not set
-          CONFIG_PACKAGE_luci-app-samba=y
-          CONFIG_PACKAGE_openssh-sftp-server=y
+          # CONFIG_PACKAGE_luci-app-samba is not set
+          # CONFIG_PACKAGE_openssh-sftp-server is not set
           CONFIG_PACKAGE_luci-app-transmission=y
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
@@ -103,17 +101,15 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
           
-          CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
-          CONFIG_PACKAGE_luci-theme-bootstrap=y
           # Open source WIFI driver
           CONFIG_PACKAGE_kmod-mt7603=y
           CONFIG_PACKAGE_kmod-mt7603e=n
           CONFIG_PACKAGE_kmod-mt76x2=y
           CONFIG_PACKAGE_kmod-mt76x2e=n
           CONFIG_PACKAGE_hostapd-common=y
-          CONFIG_PACKAGE_wpad-openssl=y
-          CONFIG_PACKAGE_luci-app-mtwifi=n
+          # CONFIG_PACKAGE_wpad-openssl is not set
+          CONFIG_PACKAGE_luci-app-mtwifi=y
           
           EOF
           
