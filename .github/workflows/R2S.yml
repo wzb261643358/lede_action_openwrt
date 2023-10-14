@@ -44,7 +44,7 @@ jobs:
 
       - name: Custom configure file
         run: |
-          mv r2s.config.seed .config
+          mv /usr/bin/r2s.config.seed .config
           make defconfig
 
       - name: Make download
