@@ -25,6 +25,6 @@ jobs:
           sudo -E apt -y autoremove --purge
           sudo -E apt clean
           sudo -E timedatectl set-timezone "Asia/Shanghai"
-          df -h   
-   - name: Prepare artifact
-        run: find / -maxdepth 2 -name "r2s.config.seed" 
+          df -h
+      - name: Prepare artifact
+        run: find ./ -type d -name "r2s.config.seed" 
