@@ -7,11 +7,18 @@ on:
     - cron: 30 15 * * Mon
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
 
+  build:
+
+    runs-on: ubuntu-20.04
     steps:
-      - name: Space cleanup and Initialization environment
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: main
+
+      - name: Space cleanup
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
