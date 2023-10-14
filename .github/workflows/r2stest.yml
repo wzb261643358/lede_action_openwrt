@@ -12,4 +12,4 @@ jobs:
     steps:
 
       - name: Prepare artifact
-        run: find ./ -type d -name "r2s.config.seed" 
+        run: find /  -name "r2s.config.seed" 
