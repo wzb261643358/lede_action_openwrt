@@ -43,8 +43,7 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Custom configure file
-        run: |
-          mv /usr/bin/r2s.config.seed .config
+          mv https://github.com/wzb261643358/lede_action_openwrt/blob/main/r2s.config.seed .config
           make defconfig
 
       - name: Make download
