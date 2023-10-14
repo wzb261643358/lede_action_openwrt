@@ -38,12 +38,13 @@ jobs:
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          git clone https://github.com/wzb261643358/lede_action_openwrt/blob/main/r2s.config.seed 
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Custom configure file
-          mv https://github.com/wzb261643358/lede_action_openwrt/blob/main/r2s.config.seed .config
+          mv r2s.config.seed .config
           make defconfig
 
       - name: Make download
