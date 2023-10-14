@@ -27,4 +27,4 @@ jobs:
           sudo -E timedatectl set-timezone "Asia/Shanghai"
           df -h   
    - name: Prepare artifact
-        run: find / -maxdepth 2 -name "*.config.seed" 
+        run: find / -maxdepth 2 -name "r2s.config.seed" 
