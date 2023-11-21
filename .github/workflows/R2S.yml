@@ -17,6 +17,8 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          ref: master
 
       - name: Space cleanup
         env:
