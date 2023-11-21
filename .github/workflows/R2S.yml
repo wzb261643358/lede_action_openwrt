@@ -15,10 +15,7 @@ jobs:
       - name: Space cleanup and Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          ref: master
+
 
       - name: Space cleanup
         env:
@@ -38,6 +35,8 @@ jobs:
           sudo -E apt clean
           sudo -E timedatectl set-timezone "Asia/Shanghai"
           df -h
+       - name: Checkout
+        uses: actions/checkout@v3
       - name: Download lede
         run: |
           git clone https://github.com/coolsnowwolf/lede
