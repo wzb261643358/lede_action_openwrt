@@ -9,18 +9,10 @@ on:
 jobs:
 
   build:
-     runs-on: ubuntu-latest
-     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    runs-on: ubuntu-latest
 
-
-      - name: Space cleanup
-        env:
-          DEBIAN_FRONTEND: noninteractive
-
-
-      - name: Space cleanup
+    steps:
+      - name: Space cleanup and Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -37,7 +29,9 @@ jobs:
           sudo -E apt -y autoremove --purge
           sudo -E apt clean
           sudo -E timedatectl set-timezone "Asia/Shanghai"
-          df -h
+
+      - name: Clone My Project
+        uses: actions/checkout@v3
       - name: Download lede
         run: |
           git clone https://github.com/coolsnowwolf/lede
