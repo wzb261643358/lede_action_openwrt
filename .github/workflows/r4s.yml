@@ -18,6 +18,8 @@ jobs:
         run: |
           docker rmi `docker images -q`
           echo "Deleting files, please wait ..."
+          rm -rf feeds/packages/lang/golang
+
           sudo rm -rf \
             /usr/share/dotnet \
             /etc/mysql \
@@ -39,9 +41,10 @@ jobs:
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
-          echo "src-git alist https://github.com/sbwml/luci-app-alist" >> ./feeds.conf.default
       - name: Update feeds
         run: |
+          git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+          git clone https://github.com/sbwml/luci-app-alist package/alist
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
