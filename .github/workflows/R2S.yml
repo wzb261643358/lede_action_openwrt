@@ -9,9 +9,15 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
 
+    runs-on: ubuntu-20.04
     steps:
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: main
+
       - name: Space cleanup
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -64,11 +70,6 @@ jobs:
           du -h --max-depth=1 ./ --exclude=build_dir --exclude=bin
           du -h --max-depth=1 ./build_dir
           du -h --max-depth=1 ./bin
-      - name: Remove unnecessary files
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-          df -h
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
