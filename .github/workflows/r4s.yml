@@ -37,7 +37,7 @@ jobs:
           mv ./lede/* ./
       - name: Install addons
         run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          echo "src-git helloworld https://github.com/1mi9908303/luci-app-passwall-plus" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
