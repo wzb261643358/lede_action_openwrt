@@ -9,11 +9,10 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - name: Space cleanup and Initialization environment
+      - name: Space cleanup
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
