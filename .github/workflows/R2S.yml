@@ -21,6 +21,8 @@ jobs:
           echo "Deleting files, please wait ..."
           sudo rm -rf \
             /usr/share/dotnet \
+            /usr/local/lib/android \
+            /opt/ghc \
             /etc/mysql \
             /etc/php
           sudo -E apt update
