@@ -25,6 +25,8 @@ jobs:
             /opt/ghc \
             /etc/mysql \
             /etc/php
+            sudo apt-get clean
+            df -h
           sudo -E apt update
           sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* moby* snap*
           sudo -E apt -y full-upgrade
