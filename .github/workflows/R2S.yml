@@ -20,7 +20,6 @@ jobs:
           docker rmi `docker images -q`
           echo "Deleting files, please wait ..."
           sudo rm -rf \
-            /mnt/swapfile  \
             /usr/share/dotnet  \
             /etc/mysql /etc/php  \
             /etc/apt/sources.list.d/*  \
