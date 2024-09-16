@@ -40,12 +40,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Download lede
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          git clone https://github.com/wzb261643358/lede
           mv ./lede/* ./
-          cd /lede/package/lean/
-          git clone https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/package/lean/luci-app-ssr-plus/*
-          mv luci-app-ssr-plus/* /lede/package/lean/
-          cd ./
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
