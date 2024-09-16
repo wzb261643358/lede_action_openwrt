@@ -48,6 +48,9 @@ jobs:
           echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
+          ./scripts/feeds update packages
+          rm -rf feeds/packages/lang/golang
+          svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
           ./scripts/feeds update helloworld
           ./scripts/feeds install -a -f -p helloworld
           ./scripts/feeds update -a
