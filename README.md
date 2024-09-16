@@ -27,7 +27,7 @@
 固件主题：
           ArgonTheme(默认显示) BootstrapTheme NetgearTheme
 
-
+https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/
 
 
 感谢 coolsnowwolf/lede源码支持
