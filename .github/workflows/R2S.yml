@@ -42,7 +42,7 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
-          git clone https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/package/lean/luci-app-ssr-plus/* /lede/package/lean/luci-app-ssr-plus
+          git clone https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/package/lean/luci-app-ssr-plus/* /lede/package/lean/
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
