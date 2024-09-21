@@ -38,8 +38,6 @@ jobs:
         run: |
           wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
           unzip lede.zip
-          cd lede
-          mv ./lede/* ./
       - name: Install addons
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
