@@ -36,7 +36,7 @@ jobs:
           df -h
       - name: Download lede
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          git clone http://www.smartlab.org.cn:81/data/User/admin/home/LEDE/
           mv ./lede/* ./
       - name: Install addons
         run: |
