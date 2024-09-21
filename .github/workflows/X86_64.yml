@@ -36,7 +36,7 @@ jobs:
           df -h
       - name: Download lede
         run: |
-          wget http://192.168.22.1:81/data/User/admin/home/lede.zip
+          wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
           unzip lede.zip
           cd lede
           mv ./lede/* ./
