@@ -29,5 +29,7 @@
 
 https://github.com/coolsnowwolf/lede/tree/2915c44a11ca0ee40b51ff5d9c18a0da1951e170/
 
+https://github.com/coolsnowwolf/lede/issues/11480 在线编译空间不足解决办法
+
 
 感谢 coolsnowwolf/lede源码支持
