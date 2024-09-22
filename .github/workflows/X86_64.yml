@@ -36,10 +36,7 @@ jobs:
           df -h
       - name: Download lede
         run: |
-          wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
-          ls
-          unzip lede.zip
-          chmod -R 777 *
+          git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
       - name: Update feeds
         run: |
