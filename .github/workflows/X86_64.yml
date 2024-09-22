@@ -39,6 +39,7 @@ jobs:
           wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
           ls
           unzip lede.zip
+          chmod -R 777 *
           mv ./lede/* ./
       - name: Update feeds
         run: |
