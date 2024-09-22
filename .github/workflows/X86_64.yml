@@ -39,9 +39,6 @@ jobs:
           wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
           unzip lede.zip
           mv ./lede/* ./
-      - name: Install addons
-        run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
