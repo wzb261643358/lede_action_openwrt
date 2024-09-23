@@ -43,11 +43,10 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
-      - name: Install addons
-        run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
+          git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
