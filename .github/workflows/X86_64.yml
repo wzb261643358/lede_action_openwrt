@@ -45,15 +45,11 @@ jobs:
           mv ./lede/* ./
       - name: Install addons
         run: |
-          sed -i "/helloworld/d" "feeds.conf.default"
-          echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-          
+          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
-          ./scripts/feeds update helloworld
-          ./scripts/feeds install -a -f -p helloworld
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
