@@ -52,10 +52,10 @@ jobs:
           mv ./lede/* ./
       - name: Update feeds
         run: |
-          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+          git clone helloworld https://github.com/fw876/helloworld.git
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
           rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
-          ./scripts/feeds clean
+          mv helloworld package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
