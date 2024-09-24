@@ -44,7 +44,6 @@ jobs:
           wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
           unzip lede
           mv ./lede/* ./
-          chmod -R 777 ./
       - name: Update feeds
         run: |
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
