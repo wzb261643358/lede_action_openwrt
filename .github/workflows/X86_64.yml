@@ -41,7 +41,7 @@ jobs:
           swap-storage: true
       - name: Download lede
         run: |
-          git clone http://www.smartlab.org.cn:81/data/User/admin/home/lede
+          git clone http://www.smartlab.org.cn:81/data/User/admin/home/lede ./lede
           mv ./lede/* ./
       - name: Update feeds
         run: |
