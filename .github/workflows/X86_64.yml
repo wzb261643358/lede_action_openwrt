@@ -5,18 +5,19 @@ on:
     branches: [ main ]
   schedule:
     - cron:  30 15 * * Mon
-permissions:
-  contents: read
 jobs:
 
-  build_openwrt:
+  build:
 
-    name: Build OpenWrt Firmware
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-20.04
     steps:
-      - name: Space cleanup and Initialization environment
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: main
+
+      - name: Space cleanup
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
