@@ -5,7 +5,8 @@ on:
     branches: [ main ]
   schedule:
     - cron:  30 15 * * Mon
-
+permissions:
+  contents: read
 jobs:
 
   build_openwrt:
