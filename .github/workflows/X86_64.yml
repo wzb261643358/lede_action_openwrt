@@ -8,17 +8,14 @@ on:
 
 jobs:
 
-  build:
+  build_openwrt:
 
-    runs-on: ubuntu-20.04
+    name: Build OpenWrt Firmware
+
+    runs-on: ubuntu-latest
+
     steps:
-
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          ref: main
-
-      - name: Space cleanup
+      - name: Space cleanup and Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
