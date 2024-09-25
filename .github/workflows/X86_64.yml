@@ -33,26 +33,15 @@ jobs:
           sudo -E apt clean
           sudo -E timedatectl set-timezone "Asia/Shanghai"
           df -h
-      - name: Checkout OpenWrt
-        uses: actions/checkout@v3
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
-        with:
-          tool-cache: true
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          swap-storage: true
       - name: Download lede
         run: |
-          wget http://www.smartlab.org.cn:81/data/User/admin/home/lede.zip
-          unzip lede
+          git clone https://github.com/coolsnowwolf/lede
           mv ./lede/* ./
-          chmod -R 777 ./
       - name: Update feeds
         run: |
-          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
