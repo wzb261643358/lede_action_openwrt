@@ -40,8 +40,6 @@ jobs:
       - name: Update feeds
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-          rm -rf package/lean/luci-theme-argon && mv luci-theme-argon package/lean/
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
