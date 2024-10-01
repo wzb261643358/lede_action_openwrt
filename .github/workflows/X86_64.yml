@@ -44,8 +44,7 @@ jobs:
           mv ./lede/* ./
       - name: Update feeds
         run: |
-
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Custom configure file
