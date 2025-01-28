@@ -6,9 +6,8 @@ on:
   schedule:
     - cron:  30 15 * * Mon
 jobs:
-
-  build:
-    runs-on: ubuntu-latest
+  jobName:
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Space cleanup
