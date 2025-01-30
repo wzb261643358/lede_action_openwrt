@@ -6,18 +6,14 @@ on:
   schedule:
     - cron:  30 15 * * Mon
 jobs:
-  install_pysam:
+  jobName:
     runs-on: ubuntu-24.04
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12", "3.13"]
-    steps:
-      - uses: actions/checkout@v4
 
     steps:
       - name: Space cleanup
         env:
           DEBIAN_FRONTEND: noninteractive
+
         run: |
           docker rmi `docker images -q`
           echo "Deleting files, please wait ..."
