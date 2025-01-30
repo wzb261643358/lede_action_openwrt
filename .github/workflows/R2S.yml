@@ -6,11 +6,13 @@ on:
   schedule:
     - cron:  30 15 * * Mon
 jobs:
-  jobName:
-    runs-on: ubuntu-24.04
+
+  build:
+
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Space cleanup
+      - name: Space cleanup and Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
 
