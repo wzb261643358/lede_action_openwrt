@@ -5,11 +5,16 @@ on:
     branches: [ main ]
   schedule:
     - cron:  30 15 * * Mon
+permissions:
+  contents: read
+
 jobs:
 
-  build:
+  build_openwrt:
 
-    runs-on: ubuntu-latest
+    name: Build OpenWrt Firmware
+
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Space cleanup and Initialization environment
