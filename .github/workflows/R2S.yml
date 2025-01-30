@@ -6,8 +6,13 @@ on:
   schedule:
     - cron:  30 15 * * Mon
 jobs:
-  jobName:
+  install_pysam:
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
 
     steps:
       - name: Space cleanup
