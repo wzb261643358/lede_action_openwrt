@@ -55,7 +55,7 @@ jobs:
           ./scripts/feeds install -a
       - name: Custom configure file
         run: |
-          mv x86.config.seed .config
+          mv x86n.config.seed .config
           make defconfig
       - name: Make download
         run: |
