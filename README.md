@@ -21,7 +21,8 @@
                     CONFIG_PACKAGE_openssh-sftp-server=y SSH服务                                                                                
                     CONFIG_PACKAGE_luci-app-transmission=y PT下载                                                                                
                     CONFIG_PACKAGE_luci-app-wol=y      局域网唤醒                                                                                
-                    CONFIG_PACKAGE_luci-app-vlmcsd=y   KMS激活服务                                                                                
+                    CONFIG_PACKAGE_luci-app-vlmcsd=y   KMS激活服务  
+                    CONFIG_PACKAGE_luci-app-mwan3=y 多宽带叠加
                     
                     
 固件主题：
