@@ -47,7 +47,9 @@ jobs:
       - name: Download lede
         run: |
           wget https://github.com/coolsnowwolf/lede/archive/refs/tags/20230609.zip
-          unzip 20230609.zip ./lede
+          unzip 20230609.zip
+          mkdir lede
+          mv ./lede-20230609 ./lede
           mv ./lede/* ./
       - name: Update feeds
         run: |
