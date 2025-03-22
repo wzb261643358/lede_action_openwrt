@@ -46,7 +46,8 @@ jobs:
           swap-storage: true
       - name: Download lede
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          wget https://github.com/coolsnowwolf/lede/archive/refs/tags/20230609.zip
+          unzip 20230609.zip ./lede
           mv ./lede/* ./
       - name: Update feeds
         run: |
