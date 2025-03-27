@@ -77,11 +77,11 @@ CONFIG_PACKAGE_vim-fuller=y
 CONFIG_PACKAGE_wget=y
 CONFIG_PACKAGE_php8=y
 CONFIG_PACKAGE_php8-fpm=y
-# CONFIG_PACKAGE_php8-mod-openssl is not set
+CONFIG_PACKAGE_php8-mod-openssl=y
 # CONFIG_PACKAGE_php8-mod-bcmath is not set
 # CONFIG_PACKAGE_php8-mod-calendar is not set
-# CONFIG_PACKAGE_php8-mod-ctype is not set
-# CONFIG_PACKAGE_php8-mod-curl is not set
+CONFIG_PACKAGE_php8-mod-ctype=y
+CONFIG_PACKAGE_php8-mod-curl=y
 # CONFIG_PACKAGE_php8-mod-dom is not set
 # CONFIG_PACKAGE_php8-mod-exif is not set
 # CONFIG_PACKAGE_php8-mod-fileinfo is not set
@@ -107,7 +107,7 @@ CONFIG_PACKAGE_php8-mod-pdo-sqlite=y
 # CONFIG_PACKAGE_php8-mod-phar is not set
 CONFIG_PACKAGE_php8-mod-session=y
 CONFIG_PACKAGE_php8-mod-shmop=y
-# CONFIG_PACKAGE_php8-mod-simplexml is not set
+CONFIG_PACKAGE_php8-mod-simplexml=y
 # CONFIG_PACKAGE_php8-mod-snmp is not set
 # CONFIG_PACKAGE_php8-mod-soap is not set
 # CONFIG_PACKAGE_php8-mod-sockets is not set
