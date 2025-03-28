@@ -134,9 +134,9 @@ jobs:
           CONFIG_PACKAGE_vim-fuller=y
           CONFIG_PACKAGE_wget=y
           CONFIG_PACKAGE_php8=y
-          CONFIG_PACKAGE_docker=y
-          CONFIG_PACKAGE_docker-compose=y
-          CONFIG_PACKAGE_dockerd=y
+          # CONFIG_PACKAGE_docker is not set
+          # CONFIG_PACKAGE_docker-compose is not set
+          # CONFIG_PACKAGE_dockerd is not set
            #CONFIG_PACKAGE_php8-fpm is not set
           CONFIG_PACKAGE_php8-fastcgi=y
           CONFIG_PACKAGE_php8-mod-openssl=y
