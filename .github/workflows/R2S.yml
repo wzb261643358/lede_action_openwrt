@@ -57,12 +57,21 @@ jobs:
         run: |
           mv r2s.config.seed .config
           make defconfig
-      - name: Make download
+
+      - name: Download packages
+        run: make download -j16
+
+      - name: Compile firmware
         run: |
-          make download -j8
-          find dl -size -1024c -exec rm -f {} \;
-
-
+          make -j$(nproc) || make -j1 V=s
+          echo "======================="
+          echo "Space usage:"
+          echo "======================="
+          df -h
+          echo "======================="
+          du -h --max-depth=1 ./ --exclude=build_dir --exclude=bin
+          du -h --max-depth=1 ./build_dir
+          du -h --max-depth=1 ./bin
       - name: Prepare artifact
         run: |
           mkdir -p ./artifact/package
@@ -79,21 +88,20 @@ jobs:
           rm -rf $(find ./bin/targets/ -type d -name "packages")
           cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
-
       - name: Upload buildinfo
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: OpenWrt_buildinfo
           path: ./artifact/buildinfo/
 
       - name: Upload package
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: OpenWrt_package
           path: ./artifact/package/
 
       - name: Upload firmware
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: OpenWrt_firmware
           path: ./bin/targets/
