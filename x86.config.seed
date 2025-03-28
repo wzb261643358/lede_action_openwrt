@@ -83,15 +83,15 @@ CONFIG_PACKAGE_php8=y
 # CONFIG_PACKAGE_docker is not set
 # CONFIG_PACKAGE_docker-compose is not set
 # CONFIG_PACKAGE_dockerd is not set
-# CONFIG_PACKAGE_php8-fpm is not set
+CONFIG_PACKAGE_php8-fpm=y
 CONFIG_PACKAGE_php8-fastcgi=y
 CONFIG_PACKAGE_php8-mod-openssl=y
-# CONFIG_PACKAGE_php8-mod-bcmath is not set
-# CONFIG_PACKAGE_php8-mod-calendar is not set
+CONFIG_PACKAGE_php8-mod-bcmath=y
+CONFIG_PACKAGE_php8-mod-calendar=y
 CONFIG_PACKAGE_php8-mod-ctype=y
 CONFIG_PACKAGE_php8-mod-curl=y
 CONFIG_PACKAGE_php8-mod-dom=y
-# CONFIG_PACKAGE_php8-mod-exif is not set
+CONFIG_PACKAGE_php8-mod-exif=y
 CONFIG_PACKAGE_php8-mod-fileinfo=y
 CONFIG_PACKAGE_php8-mod-filter=y
 CONFIG_PACKAGE_php8-mod-ftp=y
@@ -107,7 +107,7 @@ CONFIG_PACKAGE_php8-mod-mysqli=y
 CONFIG_PACKAGE_php8-mod-json=y
 CONFIG_PACKAGE_php8-mod-mysqlnd=y
 CONFIG_PACKAGE_php8-mod-opcache=y
-# CONFIG_PACKAGE_php8-mod-pcntl is not set
+CONFIG_PACKAGE_php8-mod-pcntl=y
 CONFIG_PACKAGE_php8-mod-pdo=y
 # CONFIG_PACKAGE_php8-mod-pdo-mysql is not set
 # CONFIG_PACKAGE_php8-mod-pdo-pgsql is not set
@@ -129,7 +129,7 @@ CONFIG_PACKAGE_php8-mod-tokenizer=y
 CONFIG_PACKAGE_php8-mod-xml=y
 CONFIG_PACKAGE_php8-mod-xmlreader=y
 CONFIG_PACKAGE_php8-mod-xmlwriter=y
-# CONFIG_PACKAGE_php8-mod-zip is not set
+CONFIG_PACKAGE_php8-mod-zip=y
 CONFIG_PACKAGE_kmod-bonding=y
 CONFIG_PACKAGE_proto-bonding=y
 CONFIG_PACKAGE_collectd-mod-ping=y
