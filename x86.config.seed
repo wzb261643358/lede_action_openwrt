@@ -110,7 +110,7 @@ CONFIG_PACKAGE_php8-mod-pdo=y
 # CONFIG_PACKAGE_php8-mod-phar is not set
 CONFIG_PACKAGE_php8-mod-session=y
 # CONFIG_PACKAGE_php8-mod-shmop is not set
-CONFIG_PACKAGE_php8-mod-simplexml=y
+# CONFIG_PACKAGE_php8-mod-simplexml is not set
 # CONFIG_PACKAGE_php8-mod-snmp is not set
 # CONFIG_PACKAGE_php8-mod-soap is not set
 # CONFIG_PACKAGE_php8-mod-sockets is not set
@@ -120,9 +120,9 @@ CONFIG_PACKAGE_php8-mod-simplexml=y
 # CONFIG_PACKAGE_php8-mod-sysvsem is not set
 # CONFIG_PACKAGE_php8-mod-sysvshm is not set
 # CONFIG_PACKAGE_php8-mod-tokenizer is not set
-CONFIG_PACKAGE_php8-mod-xml=y
-CONFIG_PACKAGE_php8-mod-xmlreader=y
-CONFIG_PACKAGE_php8-mod-xmlwriter=y
+# CONFIG_PACKAGE_php8-mod-xml is not set
+# CONFIG_PACKAGE_php8-mod-xmlreader is not set
+# CONFIG_PACKAGE_php8-mod-xmlwriter is not set
 CONFIG_PACKAGE_kmod-bonding=y
 CONFIG_PACKAGE_proto-bonding=y
 CONFIG_PACKAGE_collectd-mod-ping=y
@@ -142,7 +142,7 @@ CONFIG_OPENSSL_WITH_NPN=y
 # CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO is not set
 # CONFIG_FEED_rosy is not set
 
-CONFIG_PACKAGE_libxml=y
+# CONFIG_PACKAGE_libxml is not set
 CONFIG_PACKAGE_libblkid=y
 CONFIG_PACKAGE_libfdisk=y
 CONFIG_PACKAGE_libpq=y
