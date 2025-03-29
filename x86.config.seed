@@ -75,9 +75,9 @@ CONFIG_PACKAGE_nano=y
 CONFIG_PACKAGE_screen=y
 CONFIG_PACKAGE_vim-fuller=y
 CONFIG_PACKAGE_wget=y
-CONFIG_PACKAGE_mariadb-server=y
-CONFIG_PACKAGE_mariadb-server-base=y
-CONFIG_PACKAGE_mariadb-server-extra=y
+# CONFIG_PACKAGE_mariadb-server is not set
+# CONFIG_PACKAGE_mariadb-server-base is not set
+# CONFIG_PACKAGE_mariadb-server-extra is not set
 # CONFIG_PACKAGE_php8 is not set
 # CONFIG_PACKAGE_php8-fpm is not set
 # CONFIG_PACKAGE_php8-mod-openssl is not set
