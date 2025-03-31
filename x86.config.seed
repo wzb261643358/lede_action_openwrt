@@ -122,9 +122,9 @@ CONFIG_PACKAGE_php8-mod-sqlite3=y
 # CONFIG_PACKAGE_php8-mod-sysvsem is not set
 # CONFIG_PACKAGE_php8-mod-sysvshm is not set
 # CONFIG_PACKAGE_php8-mod-tokenizer is not set
-CONFIG_PACKAGE_php8-mod-xml=y
-CONFIG_PACKAGE_php8-mod-xmlreader=y
-CONFIG_PACKAGE_php8-mod-xmlwriter=y
+# CONFIG_PACKAGE_php8-mod-xml is not set
+# CONFIG_PACKAGE_php8-mod-xmlreader is not set
+# CONFIG_PACKAGE_php8-mod-xmlwriter is not set
 # CONFIG_PACKAGE_kmod-bonding is not set
 # CONFIG_PACKAGE_proto-bonding is not set
 CONFIG_PACKAGE_collectd-mod-ping=y
