@@ -68,7 +68,7 @@ jobs:
 
            CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
            CONFIG_PACKAGE_ipv6helper=y
-
+          CONFIG_PACKAGE_luci-app-kodexplorer=y
           #CONFIG_PACKAGE_luci-app-filetransfer is not set
           #CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
           #CONFIG_PACKAGE_luci-app-ramfree is not set
@@ -82,7 +82,7 @@ jobs:
            CONFIG_PACKAGE_luci-app-arpbind=y
           #CONFIG_PACKAGE_luci-app-cifsd is not set
           #CONFIG_PACKAGE_luci-app-noddos is not set
-          #CONFIG_PACKAGE_luci-app-ddns=y
+          CONFIG_PACKAGE_luci-app-ddns=y
           #CONFIG_PACKAGE_luci-proto-bonding is not set
            CONFIG_PACKAGE_luci-app-frpc=y
            CONFIG_PACKAGE_luci-app-frps=y
@@ -101,8 +101,8 @@ jobs:
           #CONFIG_PACKAGE_luci-app-mwan3 is not set
           #CONFIG_PACKAGE_luci-app-mwan3helper is not set
            CONFIG_PACKAGE_luci-app-wol=y
-           CONFIG_PACKAGE_luci-app-transmission=y
-           CONFIG_PACKAGE_luci-app-aria2=y
+          #CONFIG_PACKAGE_luci-app-transmission is not set
+          #CONFIG_PACKAGE_luci-app-aria2 is not set
           #CONFIG_PACKAGE_luci-app-adguardhome is not set
           #CONFIG_PACKAGE_luci-app-watchcat is not set
            CONFIG_PACKAGE_luci-app-ssr-plus=y
@@ -134,11 +134,12 @@ jobs:
            CONFIG_PACKAGE_vim-fuller=y
            CONFIG_PACKAGE_wget=y
 
-           CONFIG_PACKAGE_mariadb=y
-           CONFIG_PACKAGE_mariadb-server=y
-           CONFIG_PACKAGE_mariadb-client=y
-           CONFIG_PACKAGE_mariadb-common=y
-           CONFIG_PACKAGE_php8-fpm=y
+          #CONFIG_PACKAGE_mariadb is not set
+          #CONFIG_PACKAGE_mariadb-server is not set
+          #CONFIG_PACKAGE_mariadb-client is not set
+          #CONFIG_PACKAGE_mariadb-common is not set
+          #CONFIG_PACKAGE_php8 is not set
+          #CONFIG_PACKAGE_php8-fpm is not set
           #CONFIG_PACKAGE_php8-mod-gd is not set
           #CONFIG_PACKAGE_php8-mod-mysqli is not set
           #CONFIG_PACKAGE_php8-mod-mysqlnd is not set
